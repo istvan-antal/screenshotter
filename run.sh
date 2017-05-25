@@ -22,6 +22,6 @@ fi
 printf "URL\tStatus\n" > results/urls.csv
 
 while read i; do
-    RESULT=$(./bin/phantomjs rasterize.js "$i")
+    RESULT=$(./bin/phantomjs --ignore-ssl-errors=true rasterize.js "$i")
     printf "$i\t$RESULT\n" >> results/urls.csv
 done < <(./process.py)
